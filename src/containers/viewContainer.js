@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import RepoList from "../components/RepoList";
+import NewsSection from "../components/NewsSections";
 
 const mapStateToProps = (state) => ({
   repos: state.repos,
@@ -7,4 +7,4 @@ const mapStateToProps = (state) => ({
   isLoading: state.loadingInProgress
 });
 
-export default connect(mapStateToProps, null)(RepoList);
+export default connect(mapStateToProps, null)(NewsSection);
