@@ -1,17 +1,16 @@
-import { connect } from 'react-redux'
-import { getRepos, clearRepos } from '../actions'
-import SearchMenu from '../components/SearchMenu'
+import { connect } from "react-redux";
+import { getNews, getNewsByCategory, getNewsByWord } from "../actions";
+import SearchMenu from "../components/SearchMenu";
 
 const mapStateToProps = (state, ownProps) => ({
   defaultUser: ownProps.user
-})
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onGet: (input) => dispatch(getRepos(input)),
-  onClear: () => dispatch(clearRepos())
-})
+  getNewsDispacth: () => dispatch(getNews()),
+  getNewsByCategoryDispacth: (category) =>
+    dispatch(getNewsByCategory(category)),
+  getNewsByWordDispacth: (word) => dispatch(getNewsByWord(word))
+});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchMenu)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchMenu);

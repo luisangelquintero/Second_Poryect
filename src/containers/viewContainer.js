@@ -1,14 +1,10 @@
-import { connect } from 'react-redux'
-import RepoList from '../components/RepoList'
+import { connect } from "react-redux";
+import RepoList from "../components/RepoList";
 
-
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   repos: state.repos,
   hasError: state.loadingError,
   isLoading: state.loadingInProgress
-})
+});
 
-export default connect(
-  mapStateToProps,
-  null
-)(RepoList)
+export default connect(mapStateToProps, null)(RepoList);
