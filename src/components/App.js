@@ -10,7 +10,7 @@ const App = () => (
       <Route exact path="/">
         <NewsSections category={0} />
       </Route>
-      <Route path="/politic">
+      <Route path="/Politica">
         <NewsSections category={1} />
       </Route>
       <Route path="/Internacionales">

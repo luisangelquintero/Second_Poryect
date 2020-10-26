@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 
-const SearchMenu = ({ defaultUser, onGet, onClear, onSearch, value }) => {
+const SearchMenu = ({
+  getNewsDispacth,
+  getNewsByCategoryDispacth,
+  getNewsByWordDispacth
+}) => {
   const categories = [
     { name: "Internacionales", id: uuidv4() },
     { name: "Tecnologia", id: uuidv4() },
     { name: "Espectaculos", id: uuidv4() },
+    { name: "Politica", id: uuidv4() },
     { name: "Deportes", id: uuidv4() },
     { name: "Diseno", id: uuidv4() }
   ];
@@ -16,11 +21,9 @@ const SearchMenu = ({ defaultUser, onGet, onClear, onSearch, value }) => {
     <div>
       <ul className="">
         <li className="">
-          <Link to="/">
-            <div className="nav-link">
-              Home <span className="sr-only">(current)</span>
-            </div>
-          </Link>
+          <NavLink to="/" onClick={() => getNewsDispacth()}>
+            Inicio
+          </NavLink>
         </li>
 
         {categories.map((category) => {

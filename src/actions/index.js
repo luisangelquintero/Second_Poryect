@@ -6,6 +6,8 @@ import {
   SEARCH_FOR
 } from "./actionsType";
 
+const hora = moment().format("YYYY-MM-DD");
+
 export const loadingError = (bool) => ({
   type: LOADING_ERROR,
   hasErrored: bool
@@ -31,7 +33,6 @@ export const search = (e) => ({
 });
 
 export const getNews = () => {
-  const date = moment().format("YYYY-MM-DD");
   return (dispatch) => {
     dispatch(clearRepos());
 
@@ -39,7 +40,7 @@ export const getNews = () => {
 
     dispatch(loadingInProgress(true));
 
-    fetch(`https://api.canillitapp.com/latest/${date}?page=1`)
+    fetch(`https://api.canillitapp.com/latest/${hora}?page=1`)
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
