@@ -5,11 +5,10 @@ import { v4 as uuidv4 } from "uuid";
 const SearchMenu = ({ defaultUser, onGet, onClear, onSearch, value }) => {
   const categories = [
     { name: "Internacionales", id: uuidv4() },
-
-    "Tecnologia",
-    "Espectaculos",
-    "Deportes",
-    "Diseno"
+    { name: "Tecnologia", id: uuidv4() },
+    { name: "Espectaculos", id: uuidv4() },
+    { name: "Deportes", id: uuidv4() },
+    { name: "Diseno", id: uuidv4() }
   ];
 
   return (
