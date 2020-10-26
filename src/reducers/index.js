@@ -35,6 +35,7 @@ const repos = (state = [], action) => {
   }
 };
 
+//Puede ser neceserario o no
 const search = (value = "", action) => {
   switch (action.type) {
     case "SEARCH_FOR":

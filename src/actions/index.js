@@ -30,28 +30,8 @@ export const search = (e) => ({
   value: e.target.value
 });
 
-export const getNews = (path) => {
-  let URL = "";
-  switch (path) {
-    case path.includes("search"):
-      URL = `https://api.canillitapp.com${path}`;
-      break;
-    case path.includes("Internacionales"):
-      URL = "https://api.canillitapp.com/news/2";
-      break;
-    case path.includes("Tecnologia"):
-      URL = "https://api.canillitapp.com/news/3";
-      break;
-
-    default: {
-      const currentDate = new Date();
-      const year = currentDate.getFullYear();
-      const month = currentDate.getMonth();
-      const day = currentDate.getDate();
-      URL = `https://api.canillitapp.com/latest/${year}-${month}-${day}`;
-    }
-  }
-
+export const getNews = () => {
+  const date = moment().format("YYYY-MM-DD");
   return (dispatch) => {
     dispatch(clearRepos());
 
@@ -59,7 +39,57 @@ export const getNews = (path) => {
 
     dispatch(loadingInProgress(true));
 
-    fetch(URL)
+    fetch(`https://api.canillitapp.com/latest/${date}?page=1`)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+
+        dispatch(loadingInProgress(false));
+
+        return response;
+      })
+      .then((response) => response.json())
+      .then((response) => response.slice(0, 10))
+      .then((repos) => dispatch(loadingSuccess(repos)))
+      .catch(() => dispatch(loadingError(true)));
+  };
+};
+
+export const getNewsByCategory = (category) => {
+  return (dispatch) => {
+    dispatch(clearRepos());
+
+    dispatch(loadingError(false));
+
+    dispatch(loadingInProgress(true));
+
+    fetch(`https://api.canillitapp.com/latest/${category}?page=1`)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+
+        dispatch(loadingInProgress(false));
+
+        return response;
+      })
+      .then((response) => response.json())
+      .then((response) => response.slice(0, 10))
+      .then((repos) => dispatch(loadingSuccess(repos)))
+      .catch(() => dispatch(loadingError(true)));
+  };
+};
+
+export const getNewsByWord = (word) => {
+  return (dispatch) => {
+    dispatch(clearRepos());
+
+    dispatch(loadingError(false));
+
+    dispatch(loadingInProgress(true));
+
+    fetch(`https://api.canillitapp.com/search/${word}`)
       .then((response) => {
         if (!response.ok) {
           throw Error(response.statusText);
