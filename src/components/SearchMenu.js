@@ -16,7 +16,7 @@ const SearchMenu = ({ getHomeNews, searchNews, onGetNews, repos }) => {
     <div>
       <ul className="">
         <li className="">
-          <Link to="/">Inicio</Link>
+          <Link to="/Home">Inicio</Link>
         </li>
 
         {categories.map((category) => {

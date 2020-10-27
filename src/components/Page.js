@@ -6,6 +6,14 @@ class Page extends React.Component {
     getHomeNews(location.pathname);
   }
 
+  componentDidUpdate(prevProps) {
+    const oldPath =
+      this.props.location.pathname !== prevProps.location.pathname;
+    if (oldPath) {
+      this.props.getHomeNews(this.props.location.pathname);
+    }
+  }
+
   render() {
     const { repos, hasError, isLoading, getHomeNews } = this.props;
     console.log(repos);
@@ -31,7 +39,9 @@ class Page extends React.Component {
 
     return (
       <div>
-        <h1>`hola desde las section ${}` </h1>
+        {repos.map((repo) => (
+          <h6>{repo.title}</h6>
+        ))}
       </div>
     );
   }

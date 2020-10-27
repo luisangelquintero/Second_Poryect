@@ -8,12 +8,13 @@ const App = () => (
   <div>
     <SearchContainer />
     <Switch>
-      <Route exact path="/" component={viewContainer} />
+      <Route exact path="/Home" component={viewContainer} />
       <Route path="/Internacionales" component={viewContainer} />
       <Route path="/Tecnologia" component={viewContainer} />
       <Route path="/Espectaculos" component={viewContainer} />
       <Route path="/Deportes" component={viewContainer} />
       <Route path="/Diseno" component={viewContainer} />
+      <Route path="/Politica" component={viewContainer} />
       <Route path="/search/" component={viewContainer} />
     </Switch>
   </div>

@@ -32,31 +32,34 @@ export const search = (e) => ({
 
 export const getHomeNews = (path) => {
   let URL = "";
-  if (path.includes("search")) {
-    URL = `https://api.canillitapp.com${path}`;
-  }
-  if (path.length < 6) {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const day = currentDate.getDate();
-    URL = `https://api.canillitapp.com/latest/${year}-${month}-${day}`;
-  }
+  switch (path) {
+    case "/Politica":
+      URL = "https://api.canillitapp.com/news/category/1";
+      break;
 
-  if (path.includes("Internacionales")) {
-    URL = "https://api.canillitapp.com/news/category/2";
-  }
-  if (path.includes("Tecnologia")) {
-    URL = "https://api.canillitapp.com/news/category/3";
-  }
-  if (path.includes("Espectaculos")) {
-    URL = "https://api.canillitapp.com/news/category/4";
-  }
-  if (path.includes("Deportes")) {
-    URL = "https://api.canillitapp.com/news/category/5";
-  }
-  if (path.includes("Diseno")) {
-    URL = "https://api.canillitapp.com/news/category/6";
+    case "/Internacionales":
+      URL = "https://api.canillitapp.com/news/category/2";
+      break;
+
+    case "/Tecnologia":
+      URL = "https://api.canillitapp.com/news/category/3";
+      break;
+
+    case "/Espectaculos":
+      URL = "https://api.canillitapp.com/news/category/4";
+      break;
+    case "/Deportes":
+      URL = "https://api.canillitapp.com/news/category/5";
+      break;
+    case "/Diseno":
+      URL = "https://api.canillitapp.com/news/category/6";
+      break;
+    default:
+      const currentDate = new Date();
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth() + 1;
+      const day = currentDate.getDate();
+      URL = `https://api.canillitapp.com/latest/${year}-${month}-${day}`;
   }
 
   return (dispatch) => {
