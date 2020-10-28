@@ -21,7 +21,7 @@ class Page extends React.Component {
     if (hasError) {
       return (
         <div className="container">
-          <h6>Error al buscar los repos.</h6>
+          <h2>Error al buscar los repos.</h2>
         </div>
       );
     }
@@ -42,11 +42,20 @@ class Page extends React.Component {
       <div className="newscontainer">
         {repos.map((repo) => (
           <div className="news-card">
-            <img src={repo.img_url} alt={repo.title} />
-            <h6>{repo.title}</h6>
-            <a href={repo.url} className="btn btn-light news" target="_blank">
-              VER MÁS
-            </a>
+            <div className="news-card-left">
+              <img src={repo.img_url} alt={repo.title} />
+            </div>
+
+            <div className="news-card-right">
+              <h2>{repo.title}</h2>
+              <div>
+                <h3> Categoria: {repo.category}</h3>
+                <h3>Medio: {repo.source_name}</h3>
+              </div>
+              <a href={repo.url} className="btn btn-light news" target="_blank">
+                VER MÁS
+              </a>
+            </div>
           </div>
         ))}
       </div>
