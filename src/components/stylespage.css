@@ -1,0 +1,71 @@
+.newscontainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px 20px;
+  grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . .";
+  background-color: #e8e8e8;
+  padding: 5%;
+}
+
+.news-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 0.4fr 0.1fr;
+  gap: 20px 0px;
+  grid-template-areas:
+    "."
+    "."
+    ".";
+  background-color: #f4f4f2;
+  padding: 5%;
+  height: 50vh;
+  -webkit-box-shadow: -2px -2px 6px 1px rgba(129,129,129,0.2); 
+  box-shadow: -2px -2px 6px 1px rgba(129,129,129,0.2);
+
+  border: 1px solid #BBBFCA;
+  border-radius: 6px;
+}
+
+img {
+  -webkit-box-shadow: -2px -2px 6px 1px rgba(129,129,129,0.2); 
+  box-shadow: -2px -2px 6px 1px rgba(129,129,129,0.2);
+  border-radius: 6px;
+  width: 100%;
+  
+  filter: grayscale(100%) brightness(80%) contrast(120%) ;
+}
+img:hover{
+  transition-duration: 1s;
+  filter: grayscale(0%);
+}
+h6 {
+  font-family: Verdana, Geneva, sans-serif;
+font-size: 14px;
+letter-spacing: -0.6px;
+word-spacing: 0.6px;
+color: #495464;
+font-weight: 700;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: capitalize;
+}
+ a.news {
+  -webkit-box-shadow: -2px -2px 6px 1px rgba(129,129,129,0.2); 
+  box-shadow: -2px -2px 6px 1px rgba(129,129,129,0.2);
+  font-family: "Times New Roman", Times, serif;
+font-size: 12px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #bbbfca;
+font-weight: 700;
+text-decoration: none solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: normal;
+text-transform: uppercase;
+}
+}

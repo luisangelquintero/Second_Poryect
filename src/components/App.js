@@ -8,7 +8,7 @@ const App = () => (
   <div>
     <SearchContainer />
     <Switch>
-      <Route exact path="/Home" component={viewContainer} />
+      <Route exact path="/" component={viewContainer} />
       <Route path="/Internacionales" component={viewContainer} />
       <Route path="/Tecnologia" component={viewContainer} />
       <Route path="/Espectaculos" component={viewContainer} />

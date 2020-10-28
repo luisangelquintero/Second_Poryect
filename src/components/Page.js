@@ -1,4 +1,5 @@
 import React from "react";
+import "./stylespage.css";
 
 class Page extends React.Component {
   componentDidMount() {
@@ -38,9 +39,15 @@ class Page extends React.Component {
     }
 
     return (
-      <div>
+      <div className="newscontainer">
         {repos.map((repo) => (
-          <h6>{repo.title}</h6>
+          <div className="news-card">
+            <img src={repo.img_url} alt={repo.title} />
+            <h6>{repo.title}</h6>
+            <a href={repo.url} className="btn btn-light news" target="_blank">
+              VER MÁS
+            </a>
+          </div>
         ))}
       </div>
     );
