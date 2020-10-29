@@ -2,14 +2,15 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
 
-const SearchMenu = ({ getHomeNews, searchNews, onGetNews, repos }) => {
+const SearchMenu = ({ changeSearch, value }) => {
+  let input;
   const categories = [
     { name: "Internacionales", id: uuidv4(), number: 1 },
     { name: "Tecnologia", id: uuidv4(), number: 2 },
     { name: "Espectaculos", id: uuidv4(), number: 3 },
     { name: "Politica", id: uuidv4(), number: 4 },
     { name: "Deportes", id: uuidv4(), number: 5 },
-    { name: "Diseno", id: uuidv4(), number: 6 }
+    { name: "Diseño", id: uuidv4(), number: 6 }
   ];
 
   return (
@@ -61,6 +62,24 @@ const SearchMenu = ({ getHomeNews, searchNews, onGetNews, repos }) => {
               );
             })}
           </ul>
+          <form className="form-inline my-2 my-lg-0">
+            <input
+              className="form-control mr-sm-2"
+              type="search"
+              placeholder="Busqueda por Palabras"
+              aria-label="Search"
+              ref={(node) => (input = node)}
+            />
+            <Link to={`/search/ResultFromSearch`}>
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+                onClick={() => changeSearch(input.value)}
+              >
+                Buscar
+              </button>
+            </Link>
+          </form>
         </div>
       </nav>
     </header>

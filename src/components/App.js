@@ -1,6 +1,5 @@
 import React from "react";
 import SearchContainer from "../containers/SearchContainer";
-import Page from "./Page";
 import { Switch, Route } from "react-router-dom";
 import viewContainer from "../containers/viewContainer";
 

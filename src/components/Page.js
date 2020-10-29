@@ -3,7 +3,7 @@ import "./stylespage.css";
 
 class Page extends React.Component {
   componentDidMount() {
-    const { getHomeNews, location, onGetNews } = this.props;
+    const { getHomeNews, location } = this.props;
     getHomeNews(location.pathname);
   }
 
@@ -16,12 +16,15 @@ class Page extends React.Component {
   }
 
   render() {
-    const { repos, hasError, isLoading, getHomeNews } = this.props;
-    console.log(repos);
+    const { repos, hasError, isLoading } = this.props;
+
     if (hasError) {
       return (
         <div className="container">
-          <h2>Error al buscar los repos.</h2>
+          <h2>
+            <i class="fas fa-sad-cry"></i>Error al buscar los repos, intenta con
+            otra palabra.<i class="fas fa-sad-cry"></i>
+          </h2>
         </div>
       );
     }
@@ -31,7 +34,9 @@ class Page extends React.Component {
         <div className="container">
           <div class="d-flex justify-content-center">
             <div class="spinner spinner-border text-primary" role="status">
-              <span class="sr-only">Loading...</span>
+              <span class="sr-only">
+                <i class="fas fa-sad-cry"></i>Loading...
+              </span>
             </div>
           </div>
         </div>
@@ -49,10 +54,15 @@ class Page extends React.Component {
             <div className="news-card-right">
               <h2>{repo.title}</h2>
               <div>
-                <h3> Categoria: {repo.category}</h3>
-                <h3>Medio: {repo.source_name}</h3>
+                <h3>
+                  {" "}
+                  <i class="fas fa-file-export"></i> Categoria: {repo.category}
+                </h3>
+                <h3>
+                  <i class="fas fa-newspaper"></i> Medio: {repo.source_name}
+                </h3>
               </div>
-              <a href={repo.url} className="btn btn-light news" target="_blank">
+              <a href={repo.url} className="btn btn-light news" target="blank">
                 VER MÁS
               </a>
             </div>
