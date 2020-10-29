@@ -1,34 +1,20 @@
 import React from "react";
 import SearchContainer from "../containers/SearchContainer";
-import NewsSections from "./NewsSections";
 import { Switch, Route } from "react-router-dom";
+import viewContainer from "../containers/viewContainer";
 
 const App = () => (
   <div>
     <SearchContainer />
     <Switch>
-      <Route exact path="/">
-        <NewsSections category={0} />
-      </Route>
-      <Route path="/Politica">
-        <NewsSections category={1} />
-      </Route>
-      <Route path="/Internacionales">
-        <NewsSections category={2} />
-      </Route>
-      <Route path="/Tecnologia">
-        <NewsSections category={3} />
-      </Route>
-
-      <Route path="/Espectaculos">
-        <NewsSections category={4} />
-      </Route>
-      <Route path="/Deportes">
-        <NewsSections category={5} />
-      </Route>
-      <Route path="/Diseno">
-        <NewsSections category={6} />
-      </Route>
+      <Route exact path="/" component={viewContainer} />
+      <Route path="/Internacionales" component={viewContainer} />
+      <Route path="/Tecnologia" component={viewContainer} />
+      <Route path="/Espectaculos" component={viewContainer} />
+      <Route path="/Deportes" component={viewContainer} />
+      <Route path="/Diseno" component={viewContainer} />
+      <Route path="/Politica" component={viewContainer} />
+      <Route path="/search/" component={viewContainer} />
     </Switch>
   </div>
 );

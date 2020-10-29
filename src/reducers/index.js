@@ -36,17 +36,17 @@ const repos = (state = [], action) => {
 };
 
 //Puede ser neceserario o no
+/*
 const search = (value = "", action) => {
   switch (action.type) {
-    case "SEARCH_FOR":
+    case SEARCH_FOR:
       return action.value;
     default:
       return value;
   }
-};
+};*/
 export default combineReducers({
   repos,
   loadingError,
-  loadingInProgress,
-  search
+  loadingInProgress
 });

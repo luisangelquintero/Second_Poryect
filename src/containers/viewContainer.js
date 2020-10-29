@@ -1,15 +1,15 @@
 import { connect } from "react-redux";
-import { getNews, getNewsByCategory, getNewsByWord } from "../actions";
-import NewsSection from "../components/NewsSections";
+import { getHomeNews, getNews } from "../actions";
+import Page from "../components/Page";
 
 const mapStateToProps = (state) => ({
   repos: state.repos,
   hasError: state.loadingError,
   isLoading: state.loadingInProgress
 });
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  getNewsDispacth: () => dispatch(getNews()),
-  getNewsByCategoryDispacth: (category) => dispatch(getNewsByCategory(category))
+const mapDispatchToProps = (dispatch) => ({
+  getHomeNews: (path) => dispatch(getHomeNews(path)),
+  onGetNews: (category) => dispatch(getNews(category))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsSection);
+export default connect(mapStateToProps, mapDispatchToProps)(Page);
